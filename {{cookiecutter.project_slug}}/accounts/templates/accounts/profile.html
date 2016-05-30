@@ -1,4 +1,4 @@
-{% extends "accounts/base.html" %}
+{% raw %}{% extends "accounts/base.html" %}
 {% load i18n %}
 
 {% block title %}{% trans 'Your profile' %}{% endblock %}
@@ -25,4 +25,4 @@
   </div>
   {% endif %}
 </div>
-{% endblock %}
+{% endblock %}{% endraw %}

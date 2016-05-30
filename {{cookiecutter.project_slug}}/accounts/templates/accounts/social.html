@@ -1,4 +1,4 @@
-{% extends "accounts/base.html" %}
+{% raw %}{% extends "accounts/base.html" %}
 {% load i18n static %}
 {% load common_filters %}
 
@@ -35,4 +35,4 @@
   <a class="btn btn-primary" href="{% url 'login' %}">Add social account</a>
 </div>
 
-{% endblock %}
+{% endblock %}{% endraw %}

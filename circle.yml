@@ -1,0 +1,12 @@
+machine:
+  python:
+    version: 3.4.3
+
+test:
+  pre:
+    - cookiecutter . --no-input
+    - pip install -r project/requirements.txt
+  override:
+    - cd project; coverage run manage.py test --nologcapture -x
+  post:
+    - cd project; python scripts/coverage_script.py
