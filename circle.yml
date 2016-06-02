@@ -1,13 +1,12 @@
 machine:
   python:
     version: 3.4.3
-  environment:
-    RDS_DBNAME: circle_test
-    RDS_USERNAME: ubuntu
-    RDS_HOSTNAME: localhost
 
 test:
+  pre:
+    - cookiecutter . --no-input
+    - pip install -r project/requirements.txt
   override:
-    - coverage run manage.py test $TEST_COMMAND_EXTENDS
+    - cd project; coverage run manage.py test --nologcapture -x
   post:
-    - python scripts/coverage_script.py
+    - cd project; python scripts/coverage_script.py
