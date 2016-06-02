@@ -1,4 +1,4 @@
-{% extends "two_factor/_base_focus.html" %}
+{% raw %}{% extends "two_factor/_base_focus.html" %}
 {% load i18n %}
 
 {% block accounts-content %}
@@ -25,4 +25,4 @@
        class="pull-right btn btn-link">{% trans "Back to Account Security" %}</a>
     <button class="btn btn-primary" type="submit">{% trans "Generate Tokens" %}</button>
   </form>
-{% endblock %}
+{% endblock %}{% endraw %}

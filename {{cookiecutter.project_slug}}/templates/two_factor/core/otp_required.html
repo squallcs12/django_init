@@ -1,4 +1,4 @@
-{% extends "two_factor/_base_focus.html" %}
+{% raw %}{% extends "two_factor/_base_focus.html" %}
 {% load i18n %}
 
 {% block accounts-content %}
@@ -17,4 +17,4 @@
     <a href="{% url 'two_factor:setup' %}" class="btn btn-primary">
     {% trans "Enable Two-Factor Authentication" %}</a>
   </p>
-{% endblock %}
+{% endblock %}{% endraw %}

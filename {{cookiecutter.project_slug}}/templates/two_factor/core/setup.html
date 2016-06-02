@@ -1,4 +1,4 @@
-{% extends "two_factor/_base_focus.html" %}
+{% raw %}{% extends "two_factor/_base_focus.html" %}
 {% load i18n %}
 
 {% block accounts-content %}
@@ -53,4 +53,4 @@
 
     {% include "two_factor/_wizard_actions.html" %}
   </form>
-{% endblock %}
+{% endblock %}{% endraw %}

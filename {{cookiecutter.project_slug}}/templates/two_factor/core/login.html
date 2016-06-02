@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% raw %}{% extends "base.html" %}
 {% load i18n two_factor socialaccount %}
 
 {% block head-link %}
@@ -74,4 +74,4 @@
     {% include '_account_social_login.html' %}
   </div>
 </div>
-{% endblock %}
+{% endblock %}{% endraw %}

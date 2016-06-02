@@ -1,4 +1,4 @@
-{% load i18n %}
+{% raw %}{% load i18n %}
 
 <a href="{{ cancel_url }}"
    class="pull-right btn btn-link">{% trans "Cancel" %}</a>
@@ -10,4 +10,4 @@
   <button disabled name="" type="button"
           class="btn btn-disabled">{% trans "Back" %}</button>
 {% endif %}
-<button type="submit" class="btn btn-primary">{% trans "Next" %}</button>
+<button type="submit" class="btn btn-primary">{% trans "Next" %}</button>{% endraw %}

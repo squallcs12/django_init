@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% raw %}{% extends "base.html" %}
 {% load i18n %}
 
 {% block title %}{% trans 'Page not found' %}{% endblock %}
@@ -10,4 +10,4 @@
 </p>
 <p><strong>{% trans 'Or you could just press this neat little button:' %}</strong></p><br/>
 <p><a class="btn btn-primary" href="/">{% trans 'Take me home' %}</a></p>
-{% endblock %}
+{% endblock %}{% endraw %}

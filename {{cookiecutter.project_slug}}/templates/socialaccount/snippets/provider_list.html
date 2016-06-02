@@ -1,4 +1,4 @@
-{% load socialaccount common_filters %}
+{% raw %}{% load socialaccount common_filters %}
 
 {% get_providers as socialaccount_providers %}
 
@@ -16,4 +16,4 @@
    href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
   {{provider.name}}
 </a>
-{% endfor %}
+{% endfor %}{% endraw %}
