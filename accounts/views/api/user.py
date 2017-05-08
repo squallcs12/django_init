@@ -1,6 +1,11 @@
 from accounts.models import User
 
+from common.rest.permissions import IsOwnerOrReadOnly
+
 from rest_framework import serializers, viewsets
+from rest_framework.permissions import IsAuthenticated
+
+from rest_condition import And
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -10,5 +15,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    permission_classes = (And(IsOwnerOrReadOnly, IsAuthenticated),)
     queryset = User.objects.all()
     serializer_class = UserSerializer
