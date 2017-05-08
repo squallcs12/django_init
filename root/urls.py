@@ -18,9 +18,20 @@ from django.contrib import admin
 
 from common.views.home_view import HomeView
 
+from rest_framework_jwt.views import obtain_jwt_token
+
+from accounts.views.api.user import UserViewSet
+from rest_framework import routers
+
+# Routers provide an easy way of automatically determining the URL conf.
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^$', HomeView.as_view(), name='index'),
+    url(r'^api/v1/', include(router.urls)),
+    url(r'^api/jwt/auth/', obtain_jwt_token),
 ]
