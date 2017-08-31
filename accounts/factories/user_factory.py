@@ -15,21 +15,20 @@ class UserFactory(factory.DjangoModelFactory):
     is_staff = True
     is_active = True
 
-    raw_password = None
+    raw_password = password
 
     class Meta:
         model = get_user_model()
         exclude = ('raw_password',)
 
     @classmethod
-    def _prepare(cls, create, password=None, verified=True, **kwargs):
-        user = super(UserFactory, cls)._prepare(create, **kwargs)
+    def _create(cls, model_class, verified=True, *args, **kwargs):
+        user = super(UserFactory, cls)._create(model_class, *args, **kwargs)
 
-        user.raw_password = password
-        user.set_password(password)
+        user.raw_password = user.password
+        user.set_password(user.raw_password)
+        user.save()
 
-        if create:
-            user.save()
-            EmailAddressFactory(user=user, email=user.email, verified=verified)
+        EmailAddressFactory(user=user, email=user.email, verified=verified)
 
         return user

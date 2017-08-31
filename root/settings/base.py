@@ -148,8 +148,6 @@ AUTH_USER_MODEL = 'accounts.User'
 SITE_NAME = os.getenv('SITE_NAME', 'Django')
 SITE_ID = 1
 
-TEST_RUNNER = 'common.tests.core.DjangoNoseTestSuiteRunner'
-
 LOGIN_URL = reverse_lazy('account_login')
 LOGOUT_URL = reverse_lazy('account_logout')
 LOGIN_ERROR_URL = reverse_lazy('account_login')

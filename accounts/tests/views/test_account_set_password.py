@@ -40,18 +40,6 @@ class AccountSetPasswordTestCase(TestCase):
         self.fill_new_password('abcABC123!', 'abcABC123!')
         self.assertEqual(self.response.status_code, 302)
 
-    def test_weak_password(self):
-        self.fill_new_password('abc', 'abc')
-
-        self.assertEqual(self.response.status_code, 200)
-        self.should_see_text('Password must be a minimum of 6 characters.')
-
-    def test_not_match_password(self):
-        self.fill_new_password('abc123', '123456')
-
-        self.assertEqual(self.response.status_code, 200)
-        self.should_see_text('You must type the same password each time.')
-
 
 urlpatterns = [
     url(r'^log_to_my_user', AccountSetPasswordTestCase.fake_login_view, name='login_view'),

@@ -139,12 +139,12 @@ class UserTestBaseMixin(object):
     def login(self, user):
         raise NotImplemented()
 
-    def init_user(self, verified=True, **kwargs):
+    def init_user(self, **kwargs):
         """
         Create user object
         @return: common.models.User
         """
-        user = UserFactory(verified=verified, **kwargs)
+        user = UserFactory(**kwargs)
 
         if self.user is None:
             self.user = user
